@@ -1,0 +1,397 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: #fff;
+}
+ul{
+    margin: 0;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+/* header design */
+header
+{
+    background-color: rgb(51, 51, 51);
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+header .logo{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #eee;
+}
+header nav ul{
+   list-style-type: none;
+   display: flex;
+   justify-content: flex-end;
+}
+header nav ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #eee;
+}
+header nav ul li a:hover{
+    color: #eee;
+}
+/* main content of typing app */
+.main_app_contents{
+    min-height: calc(100vh - (60px + 28px));
+}
+.totypecontent_main{
+    position: relative;
+}
+.typingIdicator{
+    position: absolute;
+    width: 3px;
+    min-height: 20px;
+    background-color: rgb(37, 37, 37);
+    animation: blinking 1.5s linear infinite;
+}
+#totypecontent{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 30px;
+    padding:1rem 0; 
+    color: rgb(10, 97, 155);
+    user-select: none;
+}
+#totypecontent span{
+    padding-left: 1px;
+}
+
+.typed{
+    color: rgb(155, 155, 155);
+}
+.typed.wrong{
+    color: rgb(202, 12, 12);
+}
+
+
+/*
+space icon desingn
+*/
+.spaceIcon{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: rgba(255, 0, 0, 0);
+    border-bottom: 3px solid rgb(17, 154, 179);
+    position: relative;
+    margin: 0 .253rem;
+    box-sizing: border-box;
+}
+.spaceIcon::before{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 3px;
+    height: 4px;
+    bottom: -2PX;
+    left: 0;
+    background-color: rgb(17, 154, 179);
+}
+.spaceIcon::after{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 3px;
+    height: 4px;
+    bottom: -2PX;
+    right: 0;
+    background-color: rgb(17, 154, 179);
+}
+.typed .spaceIcon{
+    border-bottom-color: rgb(155, 155, 155);
+}
+.typed.wrong .spaceIcon{
+    border-bottom-color: rgb(202, 12, 12);
+}
+.typed .spaceIcon::before{
+    background-color: rgb(155, 155, 155);
+}
+.typed.wrong .spaceIcon::before{
+    background-color: rgb(202, 12, 12);
+}
+.typed .spaceIcon::after{
+    background-color: rgb(155, 155, 155);
+}
+.typed.wrong .spaceIcon::after{
+    background-color: rgb(202, 12, 12);
+}
+/*
+keyboard dsign
+*/
+.keyboard{
+    max-width: calc(40px * 17);
+    margin:5rem auto 0;
+    position: absolute;
+    left: 50%;
+    bottom: 30%;
+}
+.keyboard .keyboard_inner{
+    position: absolute;
+    background-color: #555555;
+    border-radius: 10px;
+    padding: .5rem .5rem;
+    padding-top: calc(.5rem + .4rem);
+    width: calc(44px * 17);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+.keyboard .keyboard_inner .key{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to right,rgb(41, 41, 41) , rgb(151, 151, 151));
+    margin: 2px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 4px;
+    color: #eee;
+    user-select: none;
+    margin:2px 4px;
+    overflow: hidden;
+    box-shadow: -2px -2px 2px 0 rgba(134, 134, 134, 0.712),2px 1px 2px 0 rgba(44, 44, 44, 0.411),0 0 2px 3px rgba(0, 0, 0, 0.295);
+}
+
+#key_28{
+    position: relative;
+    right: 8px;
+}
+#key_15,#key_29{
+    position: relative;
+    left: -3px;
+}
+#key_42{
+    position: relative;
+    left: 6px;
+}
+#key_53{
+    position: relative;
+    right: -5px;
+}
+.keyboard .keyboard_inner .key:focus, .keyboard .keyboard_inner .key.active{
+    background: linear-gradient(to right,rgb(90, 34, 34) , rgb(250, 24, 24));
+    box-shadow: -2px -2px 2px 0 rgba(158, 158, 158, 0.712),2px 1px 2px 0 rgba(165, 32, 32, 0.411),0 0 2px 3px rgba(212, 18, 18, 0.295);
+    transform: scale(.943);
+}
+.keyboard .keyboard_inner .key:nth-child(14){
+    width: calc(43px * 2);
+}
+.keyboard .keyboard_inner .key:nth-child(15){
+    width: calc(42px + 20px);
+}
+.keyboard .keyboard_inner .key:nth-child(28){
+    width: calc(40px + 20px);
+    height: calc(45px * 2);
+    float: right;
+    
+}
+.keyboard .keyboard_inner .key:nth-child(28)::after{
+    content: '';
+    display: block;
+    float: none;
+    clear:both;
+}
+.keyboard .keyboard_inner .key:nth-child(29){
+    width: calc(40px + 22px);
+}
+.keyboard .keyboard_inner .key:nth-child(42){
+    width: calc(53px * 2);
+    float: left;
+}
+.keyboard .keyboard_inner .key:nth-child(53){
+    width: calc(53px * 2);
+}
+
+.caps_lock_active{
+    background-color: red !important;
+}
+
+#key_57{
+    width:373px;
+}
+/* footer */
+
+footer{
+    width: 100%;
+    background-color: black;
+    color: #eee;
+    text-align: center;
+    line-height: 28px;
+}
+
+@keyframes blinking{
+    0%{
+      opacity: 1;
+    }
+    40%{
+      opacity: 1;
+    }
+    50%{
+      opacity: 0;
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+      opacity: 1;
+    }
+}
+
+#settings_form{
+    width: 250px;
+    background-color: rgb(87, 87, 87);
+    margin: auto;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input, label{
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+}
+#settings_form .input_group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 17px;
+    border-bottom: 1px solid gray;
+    padding: .5rem 0;
+}
+#settings_form .input_group:last-child{
+    border-bottom: 0;
+}
+
+
+/*
+scaleton desgin
+*/
+
+.scaleton{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.993);
+    overflow: hidden;
+    transition: visibility display 0.3s ease-in;
+    z-index: 1342;
+}
+
+.scaleton .scaleton_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 60px;
+}
+
+.scaleton .scaleton_header .scaleton_logo{
+    width: 100px;
+    height: 20px;
+    background-color: #cecdcde7;
+}
+.scaleton .scaleton_header .scaleton_menu{
+    width: 300px;
+    height: 20px;
+    background-color: #cecdcde7;
+}
+
+.scaleton .scaleton_content{
+    width: 70%;
+    margin:auto;
+    margin-top: 1rem;
+}
+
+hr{
+    margin-bottom: 1.3rem;
+    background: transparent;
+    outline: none;
+    border-bottom: 5px solid rgba(206, 205, 205, 0.906);
+}
+hr:last-child{
+    margin-bottom: 0;
+}
+
+.scaleton .scaleton_keyboard{
+    width: 55%;
+    min-height: 273px;
+    background: rgba(206, 205, 205, 0.906);
+    margin: auto;
+    margin-top: 5.7rem;
+    border-radius: 10px;
+}
+.scaleton .scaleton_footer{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(221, 219, 219);
+    position: absolute;
+    bottom: 0;
+}
+.scaleton .scaleton_footer hr{
+    border-top: 3px solid rgb(78, 77, 77);
+}
+.footer_content{
+    width: 30%;
+    margin: auto;
+}
+.scaleton .scaleton_animation{
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    background:linear-gradient(to right,rgba(255, 255, 255, 0.678),#fff,rgba(255, 255, 255, 0.747));
+    opacity: .9;
+    filter: blur(15px);
+    z-index: 434234;
+    animation: scaleton_anim 1s ease-in infinite;
+}
+
+@keyframes scaleton_anim
+{
+    from{
+       left:-100%;
+
+    }
+    to{
+       left: 100%;
+    }
+}
+.typing_speed{
+    color: #fff;
+    font-size: 20px;
+}
+
+.typing_speed span{
+    padding: .3rem;
+    background: paleturquoise;
+    border-radius: 50%;
+    color: #555555;
+    font-weight: bold;
+}

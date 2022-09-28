@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Fontawesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+<body>
+    <div class="scaleton">
+        <div class="scaleton_animation"></div>
+        <div class="scaleton_header"> 
+            <div class="scaleton_logo"></div>
+            <div class="scaleton_menu"></div>
+        </div>
+            <div class="scaleton_content" style="width: 200px;">
+
+                <hr>
+                <hr>
+                <hr>
+                <hr>
+                <hr>
+                <hr>
+                <hr>
+            </div>
+            <div class="scaleton_footer">
+                 <div class="footer_content">
+                     <hr>
+                 </div>
+            </div>
+     
+    </div>
+    <header>
+        <div class="logo">PracticeTyping</div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <form action="" id="settings_form">
+            <div class="input_group">
+                <label for="capitalize">Capitalize</label>
+                <input type="checkbox" name="capitalize" id="capitalize">
+            </div>
+            <div class="input_group">
+                <label for="specialchar">Special Char</label>
+                <input type="checkbox" name="specialchar" id="specialchar">
+            </div>
+            <div class="input_group">
+                <label for="keypresssound">Key Press Sound</label>
+                <input type="checkbox" name="keypresssound" id="keypresssound">
+            </div>
+        </form>
+    </div>
+    <footer style="position: absolute;bottom:0;left:0">
+        &copy; Developed by Manik Ali
+    </footer>
+    <script type="text/javascript">
+        let capitalize = document.getElementById("capitalize");
+        let specialchar = document.getElementById("specialchar");
+        let keypresssound = document.getElementById("keypresssound");
+        let localCapitalize  = localStorage.getItem("capitalize");
+        let localSpecialChar  = localStorage.getItem("specialchar");
+        let localkeypresssound = localStorage.getItem("keypresssound");
+        if(localCapitalize && localCapitalize == "true"){
+            capitalize.checked = "checked";
+        }
+        if(localSpecialChar && localSpecialChar =="true")
+        {
+            specialchar.checked = "checked";
+        }
+        if(localkeypresssound && localkeypresssound == "true")
+        {
+            keypresssound.checked = "checked";
+        }
+        capitalize.onchange = (e)=>{
+           if(!localCapitalize)
+           {
+             if(capitalize.checked){
+                localStorage.setItem("capitalize",true);
+             }
+           }else{
+             if(capitalize.checked)
+             {
+                localStorage.setItem("capitalize",true)
+             }else{
+                localStorage.setItem("capitalize",false);
+             }
+           }
+        }
+        specialchar.onchange = (e)=>{
+           
+           if(!localSpecialChar)
+           {
+             if(specialchar.checked){
+                localStorage.setItem("specialchar",true);
+             }
+           }else{
+             if(specialchar.checked)
+             {
+                localStorage.setItem("specialchar",true)
+             }else{
+                localStorage.setItem("specialchar",false);
+             }
+           }
+        }
+        keypresssound.onchange = function(){
+            if(!localkeypresssound)
+            {
+                if(keypresssound.checked)
+                {
+                    localStorage.setItem("keypresssound",true);
+                }
+            }else{
+                if(keypresssound.checked)
+                {
+                    localStorage.setItem("keypresssound",true);
+                }else{
+                    localStorage.setItem("keypresssound",false);
+                }
+            }
+        }
+        window.onload = function(e){
+            setTimeout(() => {
+                let scaleton = document.querySelector(".scaleton")
+                scaleton.style.visibility = "hidden";
+                scaleton.style.display = "none";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
